@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+<title>Quadro</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body class="idle ui-on">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.6v14.8a.8.8 0 0 0 1.2.7l12.3-7.4a.8.8 0 0 0 0-1.4L8.2 3.9A.8.8 0 0 0 7 4.6z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="4" width="4.6" height="16" rx="1.2"/><rect x="13.9" y="4" width="4.6" height="16" rx="1.2"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><rect x="4" y="5" width="2.6" height="14" rx="1"/><path d="M20 5.7v12.6a.7.7 0 0 1-1.1.6L9.3 12.6a.7.7 0 0 1 0-1.2l9.6-6.3a.7.7 0 0 1 1.1.6z"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><rect x="17.4" y="5" width="2.6" height="14" rx="1"/><path d="M4 5.7v12.6a.7.7 0 0 0 1.1.6l9.6-6.3a.7.7 0 0 0 0-1.2L5.1 5.1A.7.7 0 0 0 4 5.7z"/></symbol>
+    <symbol id="i-fback" viewBox="0 0 24 24"><rect x="15.5" y="5" width="3" height="14" rx="1"/><path d="M13 6v12a.7.7 0 0 1-1.1.6l-7.6-6a.7.7 0 0 1 0-1.2l7.6-6A.7.7 0 0 1 13 6z"/></symbol>
+    <symbol id="i-ffwd" viewBox="0 0 24 24"><rect x="5.5" y="5" width="3" height="14" rx="1"/><path d="M11 6v12a.7.7 0 0 0 1.1.6l7.6-6a.7.7 0 0 0 0-1.2l-7.6-6A.7.7 0 0 0 11 6z"/></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M17 3l3 3-3 3M20 6H8a4 4 0 0 0-4 4v1M7 21l-3-3 3-3M4 18h12a4 4 0 0 0 4-4v-1"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9.5v5a1 1 0 0 0 1 1h2.6l4.1 3.4a.8.8 0 0 0 1.3-.6V5.7a.8.8 0 0 0-1.3-.6L7.6 8.5H5a1 1 0 0 0-1 1z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M16.2 9a4.2 4.2 0 0 1 0 6M18.8 6.4a8 8 0 0 1 0 11.2"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9.5v5a1 1 0 0 0 1 1h2.6l4.1 3.4a.8.8 0 0 0 1.3-.6V5.7a.8.8 0 0 0-1.3-.6L7.6 8.5H5a1 1 0 0 0-1 1z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.4-2h5.8l1.4 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M4 6.5h11M4 12h11M4 17.5h7M18 9.5v8.2"/><circle cx="16.3" cy="17.7" r="1.9"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/></symbol>
+    <symbol id="i-unfull" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 11v5.5"/><circle cx="12" cy="7.8" r="1.2"/></symbol>
+    <symbol id="i-guides" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.9"/><rect x="7" y="8.2" width="10" height="7.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2 2"/></symbol>
+    <symbol id="i-checker" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M5 5h7v7H5zM12 12h7v7h-7z" opacity=".85"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M14.5 3.5l6 6-2 .8-3 3 .3 4.2-1.3 1.3-4.2-4.2L5 20l-.9-.1L4 19l5.400-5.300L5.200 9.500 6.500 8.200l4.200.3 3-3z"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h10M18 17h2"/><circle cx="15" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="9" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="16" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M3.500 7A1.500 1.500 0 0 1 5 5.500h4l2 2.300h8A1.500 1.500 0 0 1 20.500 9.300V17A1.500 1.500 0 0 1 19 18.500H5A1.500 1.500 0 0 1 3.500 17z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M22 8H14a6 6 0 0 0-6 6v8M42 8h8a6 6 0 0 1 6 6v8M56 42v8a6 6 0 0 1-6 6h-8M22 56h-8a6 6 0 0 1-6-6v-8"/><path class="logo-play" d="M26 21.500v21a2 2 0 0 0 3 1.700l17.500-10.500a2 2 0 0 0 0-3.400L29 19.800a2 2 0 0 0-3 1.700z"/></symbol>
+  </defs>
+</svg>
+
+<div id="stage">
+  <div id="frame">
+    <div id="guides"></div>
+  </div>
+</div>
+
+<section id="welcome">
+  <svg class="mark"><use href="#i-logo"/></svg>
+  <h1>Quadro</h1>
+  <p class="lead">Solte um vídeo aqui ou abra um arquivo.</p>
+  <div class="row">
+    <button class="btn primary" data-act="open"><svg><use href="#i-folder"/></svg>Abrir arquivo<kbd>Ctrl O</kbd></button>
+  </div>
+  <div id="recent"></div>
+  <button class="link" data-act="register" id="registerLink">Definir o Quadro como player padrão do Windows</button>
+</section>
+
+<header id="top">
+  <div class="title"><span id="fileName"></span><span id="fileMeta"></span></div>
+  <div class="tools">
+    <button class="ico" data-act="guides" data-tip="Guias de área segura (G)"><svg><use href="#i-guides"/></svg><i id="guideTag"></i></button>
+    <button class="ico" data-act="bg" data-tip="Fundo para conferir alfa (B)"><svg><use href="#i-checker"/></svg><i id="bgTag"></i></button>
+    <button class="ico" data-act="info" data-tip="Detalhes do arquivo (D)"><svg><use href="#i-info"/></svg></button>
+    <button class="ico" data-act="pin" id="pinBtn" data-tip="Manter sempre visível (T)"><svg><use href="#i-pin"/></svg></button>
+    <button class="ico" data-act="menu" data-tip="Opções"><svg><use href="#i-gear"/></svg></button>
+  </div>
+</header>
+
+<footer id="bar">
+  <div id="timeline">
+    <div class="track"><div id="buffer"></div><div id="abRange"></div><div id="played"></div></div>
+    <div id="markA" class="mark-ab">I</div><div id="markB" class="mark-ab">O</div>
+    <div id="knob"></div>
+    <div id="hoverTip"></div>
+  </div>
+  <div class="controls">
+    <div class="group">
+      <button class="ico" data-act="prev" data-tip="Anterior (PgUp)"><svg><use href="#i-prev"/></svg></button>
+      <button class="ico" data-act="frameBack" data-tip="Quadro anterior (,)"><svg><use href="#i-fback"/></svg></button>
+      <button class="ico big" data-act="toggle" data-tip="Reproduzir / pausar (Espaço)"><svg id="playIcon"><use href="#i-play"/></svg></button>
+      <button class="ico" data-act="frameFwd" data-tip="Próximo quadro (.)"><svg><use href="#i-ffwd"/></svg></button>
+      <button class="ico" data-act="next" data-tip="Próximo (PgDn)"><svg><use href="#i-next"/></svg></button>
+    </div>
+    <button id="clock" data-act="clockMode" data-tip="Alternar timecode / quadros">
+      <span id="tcNow">00:00:00:00</span><span class="sep">/</span><span id="tcDur">00:00:00:00</span>
+    </button>
+    <span id="fpsTag"></span>
+    <div class="spacer"></div>
+    <div class="group">
+      <button class="chip" data-act="loop" id="loopBtn" data-tip="Repetir o vídeo (L)"><svg><use href="#i-loop"/></svg></button>
+      <button class="chip txt" data-act="ab" id="abBtn" data-tip="Loop de trecho: I marca início, O marca fim, X limpa">I–O</button>
+      <button class="chip txt" data-act="speed" id="speedBtn" data-tip="Velocidade ([ e ])">1×</button>
+      <div id="volume">
+        <button class="ico" data-act="mute" data-tip="Mudo (M)"><svg id="volIcon"><use href="#i-vol"/></svg></button>
+        <div id="volTrack"><div id="volFill"></div></div>
+      </div>
+      <button class="ico" data-act="shot" data-tip="Salvar quadro em PNG (S)"><svg><use href="#i-cam"/></svg></button>
+      <button class="ico" data-act="playlist" data-tip="Lista da pasta (P)"><svg><use href="#i-list"/></svg></button>
+      <button class="ico" data-act="fullscreen" data-tip="Tela cheia (F)"><svg id="fullIcon"><use href="#i-full"/></svg></button>
+    </div>
+  </div>
+</footer>
+
+<aside id="infoPanel" class="panel"><h2>Detalhes<button class="ico sm" data-act="info"><svg><use href="#i-x"/></svg></button></h2><dl id="infoList"></dl></aside>
+<aside id="listPanel" class="panel"><h2>Nesta pasta<button class="ico sm" data-act="playlist"><svg><use href="#i-x"/></svg></button></h2><ol id="listItems"></ol></aside>
+<div id="menu" class="pop"></div>
+<div id="tip"></div>
+<div id="toasts"></div>
+<div id="drop"><div><svg class="mark"><use href="#i-logo"/></svg><p>Solte para reproduzir</p></div></div>
+<div id="help" class="modal"><div class="sheet"><h2>Atalhos<button class="ico sm" data-act="help"><svg><use href="#i-x"/></svg></button></h2><div id="helpGrid"></div></div></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "quadro",
+  "productName": "Quadro",
+  "version": "1.0.1",
+  "description": "Quadro — player de vídeo estável, com ferramentas de revisão de motion",
+  "main": "main.js",
+  "author": "Dobs by Azura",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "33.2.1"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}
